@@ -6,13 +6,22 @@ const init = async (): Promise<void> => {
     host: 'localhost'
   })
 
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: () => {
-      return 'Hello World!'
+  server.route([
+    {
+      method: 'GET',
+      path: '/',
+      handler: () => {
+        return 'Hello World!'
+      }
+    },
+    {
+      method: 'GET',
+      path: '/test',
+      handler: () => {
+        return 'Test Aja'
+      }
     }
-  })
+  ])
 
   await server.start()
 
