@@ -7,7 +7,9 @@
     "start": "ts-node ./src/app.ts",
     "dev": "nodemon ./src/app.ts",
     "lint": "eslint '*/**/*.ts'  --quiet --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "precommit": "npm run lint && npm run format"
   },
   "keywords": [],
   "author": "",
@@ -30,5 +32,11 @@
   },
   "dependencies": {
     "@hapi/hapi": "^21.3.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint",
+      "npm run format"
+    ]
   }
 }
